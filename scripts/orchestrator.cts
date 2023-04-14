@@ -1,60 +1,28 @@
 // validators and fixers (terraformers)
 
-export type LogLevel = "none" | "all" | "info" | "error";
+import { LogLevel, logError } from "./core/logging.cjs";
 
 export type OrchestratorCliArguments = {
   fix?: boolean;
   validate?: boolean;
   logLevel?: LogLevel;
-  //   logLevel: LogLevel | LogLevel[];
+  // logLevel: LogLevel | LogLevel[];
   log?: boolean;
-  //   throwError: boolean;
+  // throwError: boolean;
   stopOnError?: boolean;
 };
 
-export function shouldShowError(
-  logLevel: OrchestratorCliArguments["logLevel"]
-): boolean {
-  switch (logLevel) {
-    case "all":
-      return true;
-    case "info":
-      return false;
-    case "error":
-      return true;
-    case "none":
-      return true;
+export const TERRAFORMERS = [
+  // flatify structure
+  // move types to types folder
+  // add topology
+];
 
-    default:
-      return false;
-  }
-}
-
-export function shouldShowInfo(
-  logLevel: OrchestratorCliArguments["logLevel"]
-): boolean {
-  switch (logLevel) {
-    case "all":
-      return true;
-    case "info":
-      return true;
-    case "error":
-      return false;
-    case "none":
-      return true;
-
-    default:
-      return false;
-  }
-}
-
-export function logError(message: string, logLevel: LogLevel | undefined) {
-  if (!logLevel || !shouldShowError(logLevel)) {
-    return;
-  }
-
-  console.error(message);
-}
+export const VALIDATORS = [
+  // flatify structure
+  // all files have topology
+  // types only in types folder
+];
 
 export function orchestrate(args: OrchestratorCliArguments): void {
   if (!args) {
@@ -65,6 +33,10 @@ export function orchestrate(args: OrchestratorCliArguments): void {
   if (!args.validate || !args.fix) {
     logError("No clear action was provided, please specify one", args.logLevel);
   }
+
+  // TODO: allow for modular selection
+  // TODO: allow for path filtering, only apply in ... file
+  // TODO: implement allow on everything
 }
 
 (function () {

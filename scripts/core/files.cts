@@ -1,4 +1,4 @@
-export function getAllFilePaths(
+export function getAllFilesFromPath(
   path: string,
   files: string[],
   ignore: string[] = []
