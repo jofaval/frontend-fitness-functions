@@ -18,12 +18,16 @@ They're developed using TypeScript simply because this functions will be used on
 
 ## Why no ADRs?
 
-No Architecture Decision Record is provided for any validator or terraformer, these are decisions I've seen in different frontend projects, ones I've seen no linter (file structure linters are not as great as one could wish in JavaScript).
+No Architecture Decision Record is provided simply because these are decisions I've seen in different frontend projects, ones I've seen no linter (file structure linters are not as great as one could wish in JavaScript).
 
 They all shared the idea of standardizing the codebase and allowing for an easier file search experience.
 
 ## Validators and terraformers
 
-The most common use case will probably be validators, which will determine if the current codebase is up to the decision it validates, such as: all files should indicate the topology (.type, .helper, .utils, .component, .layout, etc...).a
+I would group fitness functions, oriented to frontend, between validators and terraformers.
 
-Terraformers, in my personal opinion, should fix what validators detect, validators will run on the CI pipeline, terraformers should only run on the local development environment, and will help make the codebase valid.
+The most common use case will probably be validators, which will determine if the current codebase is up to the decision it validates, such as: all files should indicate the topology (.type, .helper, .utils, .component, .layout, etc...).
+
+In my personal opinion, validators detect inconsistency in the codebase but we (engineers in charge of the architecture governance) should provide tools to fix what's wrong, that's where terraformers come into play. Following the previous example, it would rename the filename so that it adheres to the architecture decision.
+
+Validators will run on the CI pipeline, terraformers should only run on the local development environment, _a CI/CD pipeline should **NOT** modify the codebase and/or commit changes_, and will help make the codebase valid.
