@@ -12,13 +12,13 @@ Fitness functions are functions that track the evolution of the software archite
 
 ## Why using a CLI?
 
-Command Line Interfaces are a great way to offer automation, they can be connected to a CI/CD pipeline, are generally easy to use, can be abstracted to simplify groups of parameters. They have the potential to be great.
+Command Line Interfaces are a great way to offer automation, they can be connected to a CI/CD pipeline, are generally easy to use and can be abstracted to simplify groups of parameters. They have the potential to be great.
 
-They're developed using TypeScript simply because this functions will be used on a frontend development environment, where JavaScript, and hopefully typescript, is the language of use, and the one installed. Go, Rust, Python could also be used if agreed upon your team, I'd rather stick with TypeScript for this decisions.
+They're developed using TypeScript simply because this functions will be used on a frontend development environment, where JavaScript, and hopefully TypeScript, is the language of use, and the one already installed. Go, Rust, Python could also be used if agreed upon your team, I'd rather stick with TypeScript for this decisions.
 
 ## Why no ADRs?
 
-No Architecture Decision Record is provided simply because these are decisions I've seen in different frontend projects, ones I've seen no linter (file structure linters are not as great as one could wish in JavaScript).
+No Architecture Decision Record is provided simply because these are decisions I've seen in different frontend projects, ones I've seen no linter for (file structure linters are not as great as one could wish in JavaScript).
 
 They all shared the idea of standardizing the codebase and allowing for an easier file search experience.
 
