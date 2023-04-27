@@ -5,14 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-orchestrator": "tsc --strict ./scripts",
-    "execute": "node run ./scripts/orchestrator.cjs"
+    "build-orchestrator": "tsc --strict ./scripts/**/*",
+    "execute": "node run ./scripts/orchestrator.cjs",
+    "safe-execute": "pnpm run build-orchestrator && pnpm run execute"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^18.16.1",
     "fs": "0.0.1-security",
     "typescript": "^5.0.4"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }
